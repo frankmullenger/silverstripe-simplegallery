@@ -33,13 +33,14 @@ class GalleryPage extends Page {
       'Images',
       'GalleryImage',
       array(
-        'Thumbnail' => 'Thumbnail',
-        'Caption' => 'Caption'
+        'Thumbnail' => _t('GalleryPage.THUMBNAIL', 'Thumbnail'),
+        'Caption' => _t('GalleryPage.CAPTION', 'Caption')
       ),
       'getCMSFields_forPopup'
     );
     $manager->setPopupSize(650, 400);
-    $fields->addFieldToTab("Root.Content.Gallery", $manager);
+    $manager->setAddTitle(_t('GalleryPage.TITLE'), 'Gallery Image');
+    $fields->addFieldToTab("Root.Content." . _t('GalleryPage.HEADING', 'Gallery'), $manager);
 
     return $fields;
   }

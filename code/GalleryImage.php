@@ -35,8 +35,8 @@ class GalleryImage extends DataObject {
    */
   public function getCMSFields_forPopup() {
     return new FieldSet(
-      new TextareaField('Caption'),
-      new ImageField('Image')
+      new TextareaField('Caption', _t('GalleryImage.CAPTION', 'Caption')),
+      new ImageField('Image', _t('GalleryImage.IMAGE', 'Image'))
     );
   }
   
@@ -47,7 +47,7 @@ class GalleryImage extends DataObject {
    */
   function Thumbnail() {
     if ($image = $this->Image()) return $image->CMSThumbnail();
-    else return '(No Image)';
+    else return _t('GalleryImage.NOIMAGE', '(No Image)');
   }
 
   /**
